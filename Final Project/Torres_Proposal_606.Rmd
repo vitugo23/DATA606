@@ -1,0 +1,77 @@
+---
+title: "DATA 606 Data Project Proposal"
+author: "Victor Torres"
+date: "2024-04-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Research Question
+
+### How many students in NYC got the COVID 19 vaccine ages 5+ in 2022?
+
+
+
+```{r echo=FALSE}
+# load data
+nyc_file <- read_csv("https://raw.githubusercontent.com/vitugo23/DATA606/main/Final%20Project/Student_COVID_Vaccinations__3-24-2022__20240407.csv")
+head(nyc_file)
+```
+
+
+### Introduction
+I decided to work with a public data set from the city of New York, the data is about students who got the Covid 19 vaccine in 2022.
+
+### Cases
+There are 1584 cases in this dataset with six columns
+
+### Data Collection
+It appears that the for this particular data set, the collection of the data comes from a several institutions, such as DOE, health dept, etc, gathering all the data required to define the amount of students vaccinated for COVID 19 in 2022. Each column describes students with one dose, fully vaccinated, etc which it will give me rich data to work with.
+
+
+### Type of Study
+I think that, for this data set there are two types of studies: observational, research, obvserve, and collect data. as well as experimental, since some of the results of the vaccine were not 100% proven in labs because of the emergency. 
+
+
+### Data Source
+I will obtain the Data from the Open Data City of New York Website:
+https://data.cityofnewyork.us/Education/Student-COVID-Vaccinations-3-24-2022-/q5xz-reje/about_data
+
+### Dependent Variables
+The dependent variable in an observational study is the outcome or response that is being measured or observed. For this dataset, the dependent variable would be the the amount of students succesfully fully vaccinated, to have an idea of the total percentaje of it.
+
+### Independent Variables
+For this particular data set, I believe that independent variables will be the students over five years register, and also students with at least one dose.
+
+### Relevant Summary Statistics
+
+```{r}
+# Review Structure of the data set
+str(nyc_file)
+```
+
+```{r }
+# Get summary statistics of columns.
+summary(nyc_file$"# of students w/ at least one dose")
+```
+```{r}
+summary(nyc_file$"% fully vaccinated")
+```
+```{r}
+summary(nyc_file$"# of students fully vaccinated")
+```
+```{r}
+summary(nyc_file$"% w/ at least one dose")
+```
+```{r}
+boxplot(nyc_file$"% w/ at least one dose", main = "One Dose")
+```
+```{r}
+boxplot(nyc_file$"% w/ at least one dose" ~ nyc_file$"% fully vaccinated")
+```
+
+
